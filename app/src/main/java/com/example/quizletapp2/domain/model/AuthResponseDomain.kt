@@ -1,7 +1,6 @@
 package com.example.quizletapp2.domain.model
 
 import com.example.quizletapp2.data.model.UserDto
-import com.google.gson.annotations.SerializedName
 
 data class AuthResponseDomain(
     val data : LoginResultDomain?,

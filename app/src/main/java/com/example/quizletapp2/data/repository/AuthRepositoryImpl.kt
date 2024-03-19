@@ -25,7 +25,7 @@ class AuthRepositoryImpl(private val apiService : ApiService) : AuthRepository {
             val res =  apiService.login(RequestLogin(username, password)).await()
             Log.d("api", res.data.toString())
 
-            Resource.Success(res.mapToEntity())
+            Resource.Success(res.mapToEntity()) // chuyển AuthResspone từ data sang domain
         } catch (e: IOException){
             Log.d("e", e.toString())
             Resource.Error("${e.message}")
