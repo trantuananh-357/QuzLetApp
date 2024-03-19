@@ -48,6 +48,7 @@ import androidx.graphics.shapes.toPath
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Component.LoadingBtnDot.LoadingButton
 import com.example.quizletapp2.presentaition.MainViewModel
 import com.example.quizletapp2.presentaition.Screen
 import com.ramcosta.composedestinations.annotation.Destination
@@ -173,7 +174,9 @@ fun LoginScreen(
                     style = MaterialTheme.typography.body2,
                     color = MaterialTheme.colors.error,
                     textAlign = TextAlign.End,
-                    modifier = Modifier.fillMaxWidth().padding(top = 5.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 5.dp)
                 )
             }
 
@@ -196,7 +199,9 @@ fun LoginScreen(
                     style = MaterialTheme.typography.body2,
                     color = MaterialTheme.colors.error,
                     textAlign = TextAlign.End,
-                    modifier = Modifier.fillMaxWidth().padding(top = 5.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 5.dp)
                 )
             }
             Row(
@@ -212,23 +217,48 @@ fun LoginScreen(
             }
 
 
-            Button(
+//            Button(
+//                onClick = {
+//                    Log.d("login", "asdasd")
+//                    loginViewModel.loginUser(onNavigation = {
+//                        viewModel.setStateLogin()
+//
+//                    })
+//
+//                }
+//            )
+//            {
+//                if(loginState.isLoading){
+//                    CircularProgressIndicator(
+//                        modifier = Modifier.align(Alignment.CenterVertically),
+//                        progress = 0.5f,
+//                        color = Color.Blue
+//
+//                    )
+//                }
+//                else{
+//                    Text(
+//                        modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+//                        text = stringResource(id = R.string.login)
+//                    )
+//                }
+//
+//
+//            }
+
+            LoadingButton(
                 onClick = {
-                    Log.d("login", "asdasd")
-                    viewModel.setStateLogin()
                     loginViewModel.loginUser(onNavigation = {
-                        navController.navigate(Screen.BottomBar.Home.route)
+                        viewModel.setStateLogin()
                     })
+                },
+                loading = loginState.isLoading
+            ){
+                Text(text = stringResource(id = R.string.login))
 
-                }
-            )
-            {
-
-                Text(
-                    modifier = Modifier.padding(start = 10.dp, end = 10.dp),
-                    text = stringResource(id = R.string.login)
-                )
             }
+
+
             Row(modifier = Modifier.padding(10.dp)) {
                 Text(text = "Bạn chưa có tài khoản ?")
                 Text(text = " Đăng kí ngay", style = TextStyle(color = Color.Blue))
@@ -237,3 +267,5 @@ fun LoginScreen(
         }
     }
 }
+
+

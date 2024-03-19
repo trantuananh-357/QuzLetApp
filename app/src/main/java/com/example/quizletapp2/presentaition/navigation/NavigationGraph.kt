@@ -34,10 +34,10 @@ fun NavigationGraph(navController: NavHostController, pd : PaddingValues, viewMo
             LoginScreen(navController = navController, viewModel = viewModel)
         }
         composable(Screen.ModalBottom.SignIn.route){
-            SignInScreen()
+            SignInScreen(navController)
         }
         composable(Screen.BottomBar.Home.route){
-            HomeScreen()
+            HomeScreen(pd)
         }
         composable(Screen.BottomBar.Library.route){
             LibraryScreen()
