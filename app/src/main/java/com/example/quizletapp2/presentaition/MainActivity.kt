@@ -16,12 +16,15 @@ import com.example.quizletapp2.presentaition.navigation.NavigationGraph
 import com.example.quizletapp2.ui.theme.QuizletApp2Theme
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
+import android.content.Intent
+import android.net.Uri
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             val navController  = rememberNavController()
             QuizletApp2Theme {
                 // A surface container using the 'background' color from the theme
@@ -33,6 +36,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        // ATTENTION: This was auto-generated to handle app links.
+        val appLinkIntent: Intent = intent
+        val appLinkAction: String? = appLinkIntent.action
+        val appLinkData: Uri? = appLinkIntent.data
     }
 }
 

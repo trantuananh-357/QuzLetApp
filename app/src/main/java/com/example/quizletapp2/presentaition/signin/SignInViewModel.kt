@@ -1,12 +1,18 @@
 package com.example.quizletapp2.presentaition.signin
 
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.quizletapp2.common.TextFieldState
 import com.example.quizletapp2.domain.use_case.authUseCase.AuthUseCase
 import com.example.quizletapp2.domain.use_case.authUseCase.SignInUseCase
+import com.example.quizletapp2.util.Resource
+import com.example.quizletapp2.util.StateLoading
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -14,6 +20,9 @@ import javax.inject.Inject
 class SignInViewModel @Inject constructor(
     private val authUseCase: AuthUseCase
 ) : ViewModel(){
+    private val _loginState = mutableStateOf(StateLoading(false))
+    val loginState  : State<StateLoading> = _loginState
+
     private val _nameState = mutableStateOf(TextFieldState())
     val nameState : State<TextFieldState> = _nameState
 
@@ -40,6 +49,37 @@ class SignInViewModel @Inject constructor(
 
     fun setUsername(newUsername : String){
         _usernameState.value = usernameState.value.copy(text = newUsername)
+    }
+
+    fun singInUser(onNavigation : () -> Unit){
+        viewModelScope.launch {
+            _loginState.value = loginState.value.copy(isLoading = true)
+            val signInResult = authUseCase.signInUseCase(
+                name = nameState.value.text,
+                email = emailState.value.text,
+                password = passwordState.value.text,
+                username = usernameState.value.text,
+
+            )
+            when(signInResult.result){
+                is Resource.Success -> {
+                    val data = signInResult.result.data
+                    _loginState.value = loginState.value.copy(isLoading = false)
+                    onNavigation()
+                    Log.d("singin", data.status.toString())
+
+
+
+                }
+                is Resource.Error -> {
+                    _loginState.value = loginState.value.copy(isLoading = false)
+                    Log.d("errorSignIn", signInResult.result.message)
+                }
+                else ->{
+
+                }
+            }
+        }
     }
 
 

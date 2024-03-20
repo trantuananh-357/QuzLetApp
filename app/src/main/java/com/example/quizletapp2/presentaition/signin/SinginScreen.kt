@@ -31,6 +31,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.quizletapp2.R
 import com.example.quizletapp2.presentaition.Component.LoadingBtnDot.LoadingButton
+import com.example.quizletapp2.presentaition.Screen
 
 
 @Composable
@@ -47,6 +48,8 @@ fun SignInScreen (
     val rePassword = remember {
         mutableStateOf("")
     }
+
+    val loadingState = signInViewModel.loginState.value
     Scaffold(
         scaffoldState = scaffoldState
     ) {
@@ -194,11 +197,11 @@ fun SignInScreen (
             LoadingButton(
                 modifier = Modifier.padding(top = 20.dp),
                 onClick = {
-//                    loginViewModel.loginUser(onNavigation = {
-//                        viewModel.setStateLogin()
-//                    })
+                    signInViewModel.singInUser(onNavigation = {
+                        navController.navigate(Screen.ModalBottom.Login.route)
+                    })
                 },
-//                loading = loginState.isLoading
+                loading = loadingState.isLoading
             ) {
                 Text(text = stringResource(id = R.string.login))
 

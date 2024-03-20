@@ -59,7 +59,8 @@ import com.ramcosta.composedestinations.annotation.RootNavGraph
 fun LoginScreen(
     navController : NavController,
     loginViewModel: LoginViewModel = hiltViewModel(),
-    viewModel: MainViewModel
+    viewModel: MainViewModel,
+    hash: String?
 ) {
     val infiniteAnimation = rememberInfiniteTransition(label = "infinite animation")
     val morphProgress = infiniteAnimation.animateFloat(
@@ -263,6 +264,7 @@ fun LoginScreen(
                 Text(text = "Bạn chưa có tài khoản ?")
                 Text(text = " Đăng kí ngay", style = TextStyle(color = Color.Blue))
             }
+            Text(text = hash.toString())
 
         }
     }
