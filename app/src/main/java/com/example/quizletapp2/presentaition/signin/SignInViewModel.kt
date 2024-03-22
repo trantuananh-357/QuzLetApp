@@ -35,6 +35,9 @@ class SignInViewModel @Inject constructor(
     private val _usernameState = mutableStateOf(TextFieldState())
     val usernameState : State<TextFieldState> = _usernameState
 
+    private val _resultState = mutableStateOf("")
+    val resultState : State<String> = _resultState
+
     fun setName(newName : String){
         _nameState.value = nameState.value.copy(text = newName)
     }
@@ -73,7 +76,13 @@ class SignInViewModel @Inject constructor(
                 }
                 is Resource.Error -> {
                     _loginState.value = loginState.value.copy(isLoading = false)
-                    Log.d("errorSignIn", signInResult.result.message)
+                    _usernameState.value = TextFieldState(text = "")
+                    _emailState.value = TextFieldState(text = "")
+                    _nameState.value = TextFieldState(text = "")
+                    _passwordState.value = TextFieldState(text = "")
+                    _resultState.value = "Tài khoản đã tồn tại!"
+                    Log.d("errorSignIn", signInResult.result.errors?.errors?.email.toString())
+                    Log.d("errorSignIn", signInResult.result.errors?.errors?.password.toString())
                 }
                 else ->{
 

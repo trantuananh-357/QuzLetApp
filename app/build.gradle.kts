@@ -53,6 +53,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     val coroutineVer = "1.7.3"
 
 
@@ -105,6 +106,10 @@ dependencies {
     //data store
     implementation ("androidx.datastore:datastore-preferences:1.0.0")
     implementation("com.exyte:animated-navigation-bar:1.0.0")
+
+
+    //FlipCard
+    implementation ("com.wajahatkarim:flippable:1.5.4")
 
 
 

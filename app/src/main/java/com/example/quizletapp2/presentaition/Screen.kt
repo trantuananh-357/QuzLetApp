@@ -47,6 +47,13 @@ sealed class Screen (val title : String, val route : String) {
         )
 
     }
+    sealed class SubScreen(val sTitle : String, val sRouter: String, @DrawableRes val icon : Int) : Screen(sTitle, sRouter){
+        object DetailTopicScreen : SubScreen(
+            sTitle = "DetailTopicScreen",
+            sRouter = "detailtopicscreen",
+            R.drawable.house_solid
+        )
+    }
 }
 val listModal = listOf(
     Screen.ModalBottom.SignIn,

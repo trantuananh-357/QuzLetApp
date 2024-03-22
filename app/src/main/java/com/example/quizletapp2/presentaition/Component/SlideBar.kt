@@ -44,7 +44,7 @@ fun SlideBar(listSlide : List<Int>){
         }
     )
     val scope  = rememberCoroutineScope();
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxWidth()) {
             HorizontalPager(
 
                 state = paperState,

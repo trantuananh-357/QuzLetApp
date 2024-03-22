@@ -1,5 +1,6 @@
 package com.example.quizletapp2.presentaition.signin
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,6 +45,7 @@ fun SignInScreen (
     val email = signInViewModel.emailState.value
     val username = signInViewModel.usernameState.value
     val password = signInViewModel.passwordState.value
+    val result = signInViewModel.resultState.value
     val scaffoldState = rememberScaffoldState()
     val rePassword = remember {
         mutableStateOf("")
@@ -193,6 +195,15 @@ fun SignInScreen (
                         .padding(top = 5.dp)
                 )
             }
+            if(result != ""){
+                Text(
+                    text = result,
+                    style = TextStyle(color = Color.Red, textAlign = TextAlign.End),
+                    modifier = Modifier.padding(top = 10.dp)
+                )
+                rePassword.value = ""
+
+            }
 
             LoadingButton(
                 modifier = Modifier.padding(top = 20.dp),
@@ -210,7 +221,13 @@ fun SignInScreen (
 
             Row(modifier = Modifier.padding(10.dp)) {
                 Text(text = "Bạn đã có tài khoản ?")
-                Text(text = " Đăng nhập ngay!", style = TextStyle(color = Color.Blue))
+                Text(
+                    text = " Đăng nhập ngay!",
+                    style = TextStyle(color = Color.Blue),
+                    modifier = Modifier.clickable {
+                        navController.navigate(Screen.ModalBottom.Login.route)
+                    }
+                )
             }
 
 

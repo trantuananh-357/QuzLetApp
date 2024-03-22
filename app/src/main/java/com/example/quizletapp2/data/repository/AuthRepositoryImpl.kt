@@ -23,32 +23,33 @@ class AuthRepositoryImpl(private val apiService : ApiService) : AuthRepository {
     override suspend fun login(username : String, password : String) : Resource<AuthResponseDomain>{
         return try {
             val res =  apiService.login(RequestLogin(username, password)).await()
-            Log.d("api", res.data.toString())
+            Log.d("LoginSuscess", res.data.toString())
 
             Resource.Success(res.mapToEntity()) // chuyển AuthResspone từ data sang domain
         } catch (e: IOException){
-            Log.d("e", e.toString())
+            Log.d("LoginError", e.toString())
             Resource.Error("${e.message}")
 
         } catch (e: retrofit2.HttpException){
-            Log.d("e1", e.toString())
+            Log.d("LoginError", e.toString())
             Resource.Error("${e.message}")
         }
     }
 
     override suspend fun signin(name : String, email: String, password: String, username: String) : Resource<AuthResponseDomain>{
         return try{
-            val res = apiService.signin(RequestSignIn(name, email, username, password)).await()
-
+            val res = apiService.signin(RequestSignIn(name, email, password, username)).await()
+            Log.d("SignInSucsess", res.toString())
             Resource.Success(res.mapToEntity())
 
 
+
         } catch (e :  IOException){
-            Log.d("e", e.toString())
+            Log.d("SignInError", e.toString())
             Resource.Error("${e.message}")
 
         } catch (e: retrofit2.HttpException){
-            Log.d("e1", e.toString())
+            Log.d("SignInError2", e.toString())
             Resource.Error("${e.message}")
         }
 

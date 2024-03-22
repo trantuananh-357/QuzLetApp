@@ -23,6 +23,8 @@ import android.net.Uri
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val action: String? = intent?.action
+        val data: Uri? = intent?.data
         setContent {
 
             val navController  = rememberNavController()
@@ -37,10 +39,7 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // ATTENTION: This was auto-generated to handle app links.
-        val appLinkIntent: Intent = intent
-        val appLinkAction: String? = appLinkIntent.action
-        val appLinkData: Uri? = appLinkIntent.data
+
     }
 }
 

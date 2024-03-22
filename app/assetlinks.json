@@ -1,0 +1,13 @@
+[
+  {
+    "relation" : ["delegate_permission/common.handle_all_urls"],
+    "targets": [
+      {
+        "target_type": "android_app",
+        "package_name": "com.example.quizletapp2",
+        "sha256_cert_fingerprints": ["7F:5A:E2:F7:2F:16:21:0C:0C:C1:72:28:78:10:D1:3A:D5:B3:39:54:42:D4:C0:D7:B8:41:45:99:17:05:64:7B"]
+      }
+    ]
+
+  }
+]
