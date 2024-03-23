@@ -4,6 +4,8 @@ plugins {
     id("kotlin-kapt")
     id ("com.google.dagger.hilt.android")
     id ("dagger.hilt.android.plugin")
+//    id("androidx.navigation.safeargs")
+
 }
 
 android {
@@ -50,6 +52,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
 
 dependencies {
@@ -110,6 +113,9 @@ dependencies {
 
     //FlipCard
     implementation ("com.wajahatkarim:flippable:1.5.4")
+
+    implementation ("androidx.navigation:navigation-safe-args-plugin:2.5.0")
+
 
 
 

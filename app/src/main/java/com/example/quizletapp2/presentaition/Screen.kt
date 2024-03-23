@@ -15,6 +15,11 @@ sealed class Screen (val title : String, val route : String) {
             mRouter = "signin",
             R.drawable.facebook
         )
+        object ForgotPassword : ModalBottom(
+            mTitle = "ForgotPassword",
+            mRouter = "forgotpassword",
+            R.drawable.facebook
+        )
 
     }
 

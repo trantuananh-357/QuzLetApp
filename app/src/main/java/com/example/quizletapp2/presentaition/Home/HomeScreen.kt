@@ -19,17 +19,37 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.quizletapp2.R
 import com.example.quizletapp2.presentaition.Component.Card.CardItem
+import com.example.quizletapp2.presentaition.Component.Card.Term
 import com.example.quizletapp2.presentaition.Component.Catergories.Categories
 import com.example.quizletapp2.presentaition.Component.SlideBar
+import com.example.quizletapp2.presentaition.Component.TopAppBar.TopAppBarView
 
 @Composable
 fun HomeScreen(pd : PaddingValues, navController: NavController){
     val listCa = listOf(
-        CardItem("sfsd", 21342, "asdadas", R.drawable.cat),
-        CardItem("sfs", 21342, "asdadas", R.drawable.cat),
-        CardItem("sfs", 21342, "asdadas", R.drawable.cat),
-        CardItem("sfs", 21342, "asdadas", R.drawable.cat),
-        CardItem("sfsd", 21342, "asdadas", R.drawable.cat)
+        CardItem("asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà")
+        )),
+        CardItem("asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+        )),
+        CardItem("asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+        )),
+        CardItem("asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+        )),
+
     )
     val listSlide =  listOf(
         R.drawable.cat,
@@ -37,6 +57,8 @@ fun HomeScreen(pd : PaddingValues, navController: NavController){
         R.drawable.dog,
 
         )
+
+
     Column(
             modifier = Modifier
                 .padding()

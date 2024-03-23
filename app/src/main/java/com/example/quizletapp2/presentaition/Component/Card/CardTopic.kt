@@ -1,5 +1,8 @@
 package com.example.quizletapp2.presentaition.Component.Card
 
+import android.os.Parcelable
+import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -26,6 +29,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.versionedparcelable.ParcelField
 import com.example.quizletapp2.R
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -39,7 +43,8 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
 
         ,
         shape = RoundedCornerShape(5.dp),
-        onClick = { onNavigationToDetailCard() },
+        onClick = { onNavigationToDetailCard()
+                  },
         backgroundColor = Color.Gray
 
     )
@@ -89,16 +94,42 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
             }
 
 
+
         }
 
     }
 }
 
 data class CardItem(
+    val id : String,
+//    val slug: String,
+//    val title: String,
+//    val description: String,
+//    val rate: String,
+//    val type: String,
+//    val background: String,
+//    val share: String,
+//    val userId: String,
+//    val view: String,
+//    val price: Float,
+
+
     val subject: String,
     val numword : Int,
     val author : String,
-   @DrawableRes val imgAuthor: Int
+   @DrawableRes val imgAuthor: Int,
+    val datacard : List<Term>
+
+)
+
+
+data class Term(
+    val id : String,
+    val prompt : String,
+    val answer : String,
+//    val pos : Number,
+//    val cardId : String,
+//    @DrawableRes val image : Int
 
 )
 
