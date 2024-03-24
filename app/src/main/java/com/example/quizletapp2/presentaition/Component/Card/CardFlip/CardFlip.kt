@@ -1,4 +1,4 @@
-package com.example.quizletapp2.presentaition.Component.Card
+package com.example.quizletapp2.presentaition.Component.Card.CardFlip
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -33,9 +33,8 @@ import com.example.quizletapp2.R
 fun CardFlip(onFlip : ()-> Unit){
     Card(
         modifier = Modifier
-            .padding(end = 10.dp)
-            .width(140.dp)
-            .height(80.dp)
+            .fillMaxSize()
+            .padding(5.dp)
 
         ,
         shape = RoundedCornerShape(5.dp),

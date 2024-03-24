@@ -114,7 +114,8 @@ dependencies {
     //FlipCard
     implementation ("com.wajahatkarim:flippable:1.5.4")
 
-    implementation ("androidx.navigation:navigation-safe-args-plugin:2.5.0")
+
+    implementation("io.coil-kt:coil:2.6.0")
 
 
 

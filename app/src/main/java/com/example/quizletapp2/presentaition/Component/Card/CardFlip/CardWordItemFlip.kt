@@ -1,17 +1,18 @@
-package com.example.quizletapp2.presentaition.Component.Card
+package com.example.quizletapp2.presentaition.Component.Card.CardFlip
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import com.wajahatkarim.flippable.FlipAnimationType
 import com.wajahatkarim.flippable.Flippable
 import com.wajahatkarim.flippable.FlippableController
-import com.example.quizletapp2.R
 
 @Composable
-fun CardWordItem(){
+fun CardWordItemFlip(){
     var duration: Int by remember { mutableStateOf(400) }
     var flipOnTouchEnabled: Boolean by remember { mutableStateOf(true) }
     val flipEnabled: Boolean by remember { mutableStateOf(true) }
@@ -23,6 +24,7 @@ fun CardWordItem(){
     }
 
     Flippable(
+        modifier = Modifier.fillMaxWidth(),
         frontSide = {
             EnglishWordFrontSide(flipController)
         },

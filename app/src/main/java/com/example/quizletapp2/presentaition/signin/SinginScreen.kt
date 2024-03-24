@@ -174,8 +174,8 @@ fun SignInScreen (
 
             OutlinedTextField(
                 value = rePassword.value,
-                onValueChange = {
-                    rePassword.value = it
+                onValueChange = {item->
+                    rePassword.value = item
                 },
                 placeholder = {
                     Text(text = "Nhập lại mật khẩu")
@@ -201,7 +201,7 @@ fun SignInScreen (
                     style = TextStyle(color = Color.Red, textAlign = TextAlign.End),
                     modifier = Modifier.padding(top = 10.dp)
                 )
-                rePassword.value = ""
+
 
             }
 

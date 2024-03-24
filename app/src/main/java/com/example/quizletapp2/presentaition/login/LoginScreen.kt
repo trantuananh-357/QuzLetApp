@@ -266,7 +266,7 @@ fun LoginScreen(
                 Text(
                     text = " Đăng kí ngay", style = TextStyle(color = Color.Blue),
                     modifier = Modifier.clickable {
-                        navController.navigate("home")
+                        navController.navigate(Screen.ModalBottom.SignIn.route)
                     }
 
                 )

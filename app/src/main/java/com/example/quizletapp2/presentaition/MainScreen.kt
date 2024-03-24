@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.indication
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,6 +38,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,6 +60,7 @@ import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Component.TopAppBar.TopAppBarView
 import com.example.quizletapp2.presentaition.Screen.BottomBar.Calendar.title
 import com.example.quizletapp2.presentaition.navigation.NavigationGraph
 import com.exyte.animatednavbar.AnimatedNavigationBar
@@ -80,6 +83,19 @@ fun MainScreen(controller : NavHostController){
     var selectedIndex by remember {
         mutableStateOf(0)
     }
+    var showTopBarAndBottomBar by rememberSaveable {
+        mutableStateOf(true)
+    }
+    showTopBarAndBottomBar = when(currentRoute){
+        Screen.BottomBar.Home.route -> true
+        Screen.BottomBar.Library.route -> true
+        Screen.BottomBar.Create.route -> true
+        Screen.BottomBar.Calendar.route -> true
+        Screen.BottomBar.LyricTraining.route -> true
+        else -> false
+    }
+
+    val dark = isSystemInDarkTheme()
 
 
 
@@ -88,111 +104,52 @@ fun MainScreen(controller : NavHostController){
             selectedIndex = i
         }
     }
-    val topAppBar : @Composable () -> Unit ={
-        TopAppBar(
-
-            modifier = Modifier.fillMaxWidth().height(50.dp),
-            colors = TopAppBarDefaults.smallTopAppBarColors( // Access default colors
-                containerColor = Color.White,
-            ),
-            title = {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(start =  16.dp, end = 16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-
-                    ) {
-                    Row(
-                        modifier = Modifier.wrapContentSize()
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.download),
-                            contentDescription = "App",
-                            modifier = Modifier.wrapContentSize().offset(x = -20.dp),
-                            contentScale = ContentScale.Fit
-
-
-                        )
-                        Text(
-                            modifier = Modifier.offset(x = -60.dp, y= 10.dp).wrapContentSize(),
-                            text = stringResource(id = R.string.slogan),
-                            color = Color.Black,
-                            style = TextStyle(fontSize = 10.sp, fontStyle = FontStyle.Italic)
-                        )
-                    }
-                    Row(
-                        modifier = Modifier.wrapContentSize()
-                    ) {
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.magnifying_glass_solid),
-                                contentDescription = "Search",
-                                modifier = Modifier.size(15.dp)
-                            )
-                        }
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.bell_solid),
-                                contentDescription = "Notification",
-                                modifier = Modifier.size(15.dp)
-                            )
-                        }
-
-                    }
-
-
-
-                }
-
-            })
-    }
-
-
-
-
-
-
-
-
     val login  = viewModel.stateLogin.value
     if(login){
 
             Scaffold (
                 bottomBar = {
-                    AnimatedNavigationBar(
-                        selectedIndex = selectedIndex,
-                        modifier = Modifier.height(64.dp),
-                        cornerRadius = shapeCornerRadius(cornerRadius = 34.dp),
-                        ballAnimation = Parabolic(tween(300)),
-                        ballColor = Color.White,
-                        barColor = Color.White,
+                    if(showTopBarAndBottomBar){
+                        AnimatedNavigationBar(
+                            selectedIndex = selectedIndex,
+                            modifier = Modifier.height(64.dp),
+                            cornerRadius = shapeCornerRadius(cornerRadius = 34.dp),
+                            ballAnimation = Parabolic(tween(300)),
+                            ballColor = Color.White,
+                            barColor = Color.White,
 
 
-                        ) {
-                        listBottomBar.forEach{item->
-                            Box (
-                                modifier = Modifier
-                                    .fillMaxSize()
-                                    .noRippleClickable {
-                                        selectedIndex = listBottomBar.indexOf(item)
-                                        controller.navigate(item.route + "screen")
-                                    }
-                                ,
-                                contentAlignment = Alignment.Center
-                            ){
-                                Icon(
-                                    painter = painterResource(id = item.icon),
-                                    contentDescription = item.title,
-                                    modifier = Modifier.size(20.dp),
-                                    tint = if(selectedIndex == listBottomBar.indexOf(item)) Color.Black else Color.Gray
-                                )
+                            ) {
+                            listBottomBar.forEach{item->
+                                Box (
+                                    modifier = Modifier
+                                        .fillMaxSize()
+                                        .noRippleClickable {
+                                            selectedIndex = listBottomBar.indexOf(item)
+                                            controller.navigate(item.route + "screen")
+                                        }
+                                    ,
+                                    contentAlignment = Alignment.Center
+                                ){
+                                    Icon(
+                                        painter = painterResource(id = item.icon),
+                                        contentDescription = item.title,
+                                        modifier = Modifier.size(20.dp),
+                                        tint = if(selectedIndex == listBottomBar.indexOf(item)) Color.Black else Color.Gray
+                                    )
 
 
+                                }
                             }
                         }
                     }
+
+
                 },
                 topBar = {
-                    topAppBar()
+                    if(showTopBarAndBottomBar){
+                        TopAppBarView("main", controller)
+                    }
                 },
 
                 ){
@@ -207,6 +164,8 @@ fun MainScreen(controller : NavHostController){
 
     }
 }
+
+
 
 
 

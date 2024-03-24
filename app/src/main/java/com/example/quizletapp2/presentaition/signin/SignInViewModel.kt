@@ -76,10 +76,10 @@ class SignInViewModel @Inject constructor(
                 }
                 is Resource.Error -> {
                     _loginState.value = loginState.value.copy(isLoading = false)
-                    _usernameState.value = TextFieldState(text = "")
-                    _emailState.value = TextFieldState(text = "")
-                    _nameState.value = TextFieldState(text = "")
-                    _passwordState.value = TextFieldState(text = "")
+                    _usernameState.value = usernameState.value.copy(text = "")
+                    _emailState.value = emailState.value.copy(text = "")
+                    _nameState.value = nameState.value.copy(text = "")
+                    _passwordState.value = passwordState.value.copy(text = "")
                     _resultState.value = "Tài khoản đã tồn tại!"
                     Log.d("errorSignIn", signInResult.result.errors?.errors?.email.toString())
                     Log.d("errorSignIn", signInResult.result.errors?.errors?.password.toString())

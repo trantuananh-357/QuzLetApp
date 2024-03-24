@@ -42,7 +42,7 @@ val startScreen = remember {
         startScreen.value = "homescreen"
     }
     else{
-        startScreen.value = "homescreen"
+        startScreen.value = "authscreen"
     }
 
 
@@ -89,9 +89,10 @@ val startScreen = remember {
                 HomeScreen(pd, navController)
             }
             composable(
-                Screen.SubScreen.DetailTopicScreen.route + "/{json}",
-                ){
-                DetailTopicScreen("dakdsgaskjd")
+                Screen.SubScreen.DetailTopicScreen.route + "/{idcard}",
+                ){navBackStack ->
+                val param = navBackStack.arguments?.getString("idcard")
+                DetailTopicScreen(param, navController)
             }
         }
         navigation(startDestination = Screen.BottomBar.Library.route, route = "libraryscreen"){
