@@ -12,13 +12,16 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,6 +40,8 @@ import com.example.quizletapp2.R
 import com.example.quizletapp2.presentaition.Component.Card.CardFlip.SlideCardFlip
 import com.example.quizletapp2.presentaition.Component.Card.CradNormal.CardNormal
 import com.example.quizletapp2.presentaition.Component.Card.Term
+import com.example.quizletapp2.presentaition.Component.DragDrop.DragDropList
+import com.example.quizletapp2.presentaition.Component.DragDrop.move
 import com.example.quizletapp2.presentaition.Component.TopAppBar.TopAppBarView
 
 @Composable
@@ -45,7 +50,8 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
         Term("asd", "House", "Nhà"),
         Term("asd", "House", "Nhà"),
         Term("asd", "House", "Nhà"),
-        Term("asd", "House", "Nhà")
+        Term("asd", "House", "Nhà"),
+        Term("asd", "House", "Nhà"),
     )
 
     Scaffold (
@@ -61,10 +67,16 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
 
 
     ) {
-        Column(modifier = Modifier.padding(it) ) {
+        Column(modifier = Modifier
+            .padding(it)
+            .fillMaxSize()
+        ) {
             SlideCardFlip(dataTerm)
             Column (
-                modifier = Modifier.padding(start = 10.dp, end = 10.dp)
+                modifier = Modifier
+                    .padding(start = 10.dp, end = 10.dp)
+                    .fillMaxWidth()
+
             ){
                 Row(
                     modifier = Modifier
@@ -145,7 +157,7 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
 
                 }
                 Column (
-                    modifier = Modifier.padding(top = 5.dp)
+                    modifier = Modifier.padding(top = 5.dp).fillMaxWidth()
                 ){
 
                         LazyColumn(){
@@ -155,15 +167,41 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
                         }
 
                 }
-                Column {
+                DragDropList(
+                        items = ReorderItem,
+                        onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)}
+                )
 
-                }
+
             }
 
         }
 
     }
 }
+
+val ReorderItem = listOf(
+    "Item 1",
+    "Item 2",
+    "Item 3",
+    "Item 4",
+    "Item 5",
+    "Item 6",
+    "Item 7",
+    "Item 8",
+    "Item 9",
+    "Item 10",
+    "Item 11",
+    "Item 12",
+    "Item 13",
+    "Item 14",
+    "Item 15",
+    "Item 16",
+    "Item 17",
+    "Item 18",
+    "Item 19",
+    "Item 20"
+).toMutableStateList()
 
 @Preview(showBackground = true)
 @Composable
