@@ -22,6 +22,9 @@ import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
 import com.example.quizletapp2.presentaition.Component.Card.Term
 import com.example.quizletapp2.presentaition.DetailTopicScreen.DetailTopicScreen
+import com.example.quizletapp2.presentaition.DetailTopicScreen.ListenScreen.ListenScreen
+import com.example.quizletapp2.presentaition.DetailTopicScreen.StudyScreen.StudyScreen
+import com.example.quizletapp2.presentaition.DetailTopicScreen.WriteScreen.WriteScreen
 import com.example.quizletapp2.presentaition.Home.CalendarScreen
 import com.example.quizletapp2.presentaition.Home.CreatorScreen
 import com.example.quizletapp2.presentaition.Home.HomeScreen
@@ -115,6 +118,17 @@ val startScreen = remember {
                 LyricTrainingScreen()
             }
         }
+
+        composable(Screen.FeatureStudy.Study.route){
+            StudyScreen()
+        }
+        composable(Screen.FeatureStudy.Write.route){
+            WriteScreen()
+        }
+        composable(Screen.FeatureStudy.Listen.route){
+            ListenScreen()
+        }
+
 
 
 

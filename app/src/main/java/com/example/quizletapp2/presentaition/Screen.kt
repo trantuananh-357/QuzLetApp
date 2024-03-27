@@ -59,6 +59,24 @@ sealed class Screen (val title : String, val route : String) {
             R.drawable.house_solid
         )
     }
+
+    sealed class FeatureStudy(val fTitle : String, val fRouter: String, @DrawableRes val icon : Int) : Screen(fTitle, fRouter){
+        object Study : FeatureStudy(
+            fTitle = "Học",
+            fRouter = "study",
+            R.drawable.bookmark_solid
+        )
+        object Write : FeatureStudy(
+            fTitle = "Viết",
+            fRouter = "write",
+            R.drawable.pen_nib_solid
+        )
+        object Listen : FeatureStudy(
+            fTitle = "Nghe",
+            fRouter = "listen",
+            R.drawable.headphones_solid
+        )
+    }
 }
 val listModal = listOf(
     Screen.ModalBottom.SignIn,
@@ -73,3 +91,10 @@ val listBottomBar = listOf(
     Screen.BottomBar.LyricTraining,
 
     )
+
+val listFeature =  listOf(
+    Screen.FeatureStudy.Study,
+    Screen.FeatureStudy.Write,
+    Screen.FeatureStudy.Listen,
+
+)

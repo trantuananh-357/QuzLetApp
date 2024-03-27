@@ -1,5 +1,6 @@
 package com.example.quizletapp2.presentaition.DetailTopicScreen
 
+import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -43,16 +45,16 @@ import com.example.quizletapp2.presentaition.Component.Card.Term
 import com.example.quizletapp2.presentaition.Component.DragDrop.DragDropList
 import com.example.quizletapp2.presentaition.Component.DragDrop.move
 import com.example.quizletapp2.presentaition.Component.TopAppBar.TopAppBarView
+import com.example.quizletapp2.presentaition.listFeature
 
 @Composable
 fun DetailTopicScreen(idCard : String?, navController: NavController){
     val dataTerm = listOf(
-        Term("asd", "House", "Nhà"),
-        Term("asd", "House", "Nhà"),
-        Term("asd", "House", "Nhà"),
-        Term("asd", "House", "Nhà"),
-        Term("asd", "House", "Nhà"),
+        Term("1", "House", "Nhà"),
+        Term("2", "House", "Nhà"),
+        Term("3", "House", "Nhà"),
     )
+    val context = LocalContext.current
 
     Scaffold (
         modifier = Modifier
@@ -64,12 +66,10 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
 
         }
 
-
-
     ) {
         Column(modifier = Modifier
             .padding(it)
-            .fillMaxSize()
+            .fillMaxWidth()
         ) {
             SlideCardFlip(dataTerm)
             Column (
@@ -157,25 +157,38 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
 
                 }
                 Column (
-                    modifier = Modifier.padding(top = 5.dp).fillMaxWidth()
+                    modifier = Modifier
+                        .padding(top = 5.dp)
+                        .fillMaxWidth()
                 ){
 
                         LazyColumn(){
-                            items(dataTerm) {item ->
-                                CardNormal()
+                            items(listFeature) { item ->
+                                CardNormal(item,navController)
                             }
                         }
 
                 }
+
                 DragDropList(
-                        items = ReorderItem,
-                        onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)}
+                    items = ReorderItem,
+                    onMove = { fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)
+
+                    }
                 )
+
 
 
             }
 
+
+
+
+
         }
+
+
+
 
     }
 }

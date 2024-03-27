@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -27,11 +28,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Screen
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CardNormal(){
+fun CardNormal(item : Screen.FeatureStudy, navController: NavController){
     Card (
         modifier = Modifier
             .fillMaxWidth()
@@ -39,13 +43,16 @@ fun CardNormal(){
             .shadow(ambientColor = Color.Gray,elevation = 2.dp, spotColor = Color.Black, shape = RoundedCornerShape(2.dp))
         ,
         shape = RoundedCornerShape(5.dp),
+        onClick = {
+            navController.navigate(item.fRouter)
+        }
     ){
        Row(
            modifier = Modifier.padding(5.dp).fillMaxWidth().height(40.dp)
        ) {
            IconButton(onClick = { /*TODO*/ }) {
                Icon(
-                   painter = painterResource(id = R.drawable.sun_solid ),
+                   painter = painterResource(id = item.icon ),
                    contentDescription = "TagName",
                    modifier = Modifier.size(25.dp),
                    tint = Color.Blue
@@ -58,7 +65,7 @@ fun CardNormal(){
                modifier = Modifier.fillMaxSize()
            ) {
                Text(
-                   text = "Thẻ ghi nhớ",
+                   text = item.title,
                    modifier = Modifier,
                    style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 12.sp)
                )
@@ -77,5 +84,4 @@ fun CardNormal(){
 @Preview(showBackground = true)
 @Composable
 fun dfsd(){
-    CardNormal()
 }

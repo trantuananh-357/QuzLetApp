@@ -17,12 +17,17 @@ import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.quizletapp2.R
 import com.example.quizletapp2.presentaition.Component.Card.CardItem
 import com.example.quizletapp2.presentaition.Component.Card.Term
 import com.example.quizletapp2.presentaition.Component.Catergories.Categories
+import com.example.quizletapp2.presentaition.Component.DragDrop.DragDropList
+import com.example.quizletapp2.presentaition.Component.DragDrop.move
+import com.example.quizletapp2.presentaition.Component.IconFun.IconVoice
 import com.example.quizletapp2.presentaition.Component.SlideBar
 import com.example.quizletapp2.presentaition.Component.TopAppBar.TopAppBarView
+import com.example.quizletapp2.presentaition.DetailTopicScreen.ReorderItem
 
 @Composable
 fun HomeScreen(pd : PaddingValues, navController: NavController){
@@ -74,16 +79,15 @@ fun HomeScreen(pd : PaddingValues, navController: NavController){
                 Categories("Phổ Biến", listCa, navController )
 
             }
-
-
-
-
-
-
-
         }
 
 
 
 
+}
+
+@Preview(showBackground = true)
+@Composable
+fun sdfsdf(){
+    HomeScreen(PaddingValues(10.dp), navController = rememberNavController())
 }

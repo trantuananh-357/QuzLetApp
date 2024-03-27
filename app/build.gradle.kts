@@ -57,6 +57,7 @@ android {
 
 dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.11.0")
     val coroutineVer = "1.7.3"
 
 
@@ -88,13 +89,13 @@ dependencies {
     //Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:room_version")
 
-    implementation("androidx.compose.ui:ui-tooling:1.6.2")
+    implementation("androidx.compose.ui:ui-tooling:1.6.4")
     kapt("org.xerial:sqlite-jdbc:3.41.2.2")
 
     //Navigation
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
-    implementation("androidx.compose.material:material-icons-extended:1.6.3")
+    implementation("androidx.compose.material:material-icons-extended:1.6.4")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Retrofit
@@ -114,17 +115,22 @@ dependencies {
     //FlipCard
     implementation ("com.wajahatkarim:flippable:1.5.4")
 
-
+    //loading image
     implementation("io.coil-kt:coil:2.6.0")
 
+//Exo MEDIA3
+    implementation ("androidx.media3:media3-exoplayer:1.3.0")
+    implementation ("androidx.media3:media3-ui:1.3.0")
+    implementation ("androidx.media3:media3-common:1.3.0")
 
 
 
 
 
 
-    implementation ("androidx.compose.material:material:1.6.3")
-    implementation ("androidx.compose.material:material-icons-extended:1.6.3")
+
+    implementation ("androidx.compose.material:material:1.6.4")
+    implementation ("androidx.compose.material:material-icons-extended:1.6.4")
 
     implementation ("androidx.graphics:graphics-shapes:1.0.0-alpha05")
 
