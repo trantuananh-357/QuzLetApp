@@ -23,6 +23,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -35,6 +36,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -56,6 +58,8 @@ android {
 }
 
 dependencies {
+
+    coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.0.4")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-firestore-ktx:24.11.0")
     val coroutineVer = "1.7.3"
@@ -122,6 +126,21 @@ dependencies {
     implementation ("androidx.media3:media3-exoplayer:1.3.0")
     implementation ("androidx.media3:media3-ui:1.3.0")
     implementation ("androidx.media3:media3-common:1.3.0")
+
+
+
+    implementation ("com.kizitonwose.calendar:view:2.5.0")
+
+    // The compose calendar library
+    implementation ("com.kizitonwose.calendar:compose:2.5.0")
+
+
+    implementation ("io.github.boguszpawlowski.composecalendar:composecalendar:1.2.0")
+
+    // separate artifact with utilities for working with kotlinx-datetime
+    implementation ("io.github.boguszpawlowski.composecalendar:kotlinx-datetime:1.2.0")
+
+
 
 
 

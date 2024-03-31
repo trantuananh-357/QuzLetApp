@@ -26,6 +26,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,9 +39,9 @@ import com.example.quizletapp2.R
 fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
     Card(
         modifier = Modifier
-            .padding(end = 10.dp)
-            .width(140.dp)
-            .height(80.dp)
+            .padding(end = 20.dp)
+            .width(160.dp)
+            .height(100.dp)
 
         ,
         shape = RoundedCornerShape(5.dp),
@@ -58,12 +60,20 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
             Column {
                 Text(
                     text = item.subject,
-                    style = TextStyle(color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.Bold),
+                    style = TextStyle(
+                        color = Color.White,
+                        fontSize = 10.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    ),
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(
                     text = item.numword.toString(),
-                    style = TextStyle(color = Color.White, fontSize = 7.sp),
+                    style = TextStyle(
+                        color = Color.White,
+                        fontSize = 7.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_medium))
+                    ),
                     modifier = Modifier
                         .padding(top = 3.dp)
                         .fillMaxWidth()
@@ -88,7 +98,12 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
                 )
                 Text(
                     text = item.author,
-                    style = TextStyle(color = Color.White, fontSize = 8.sp),
+                    style = TextStyle(
+                        color = Color.White,
+                        fontSize = 8.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_extrabold))
+
+                    ),
                     modifier = Modifier.padding(start = 3.dp)
                 )
             }

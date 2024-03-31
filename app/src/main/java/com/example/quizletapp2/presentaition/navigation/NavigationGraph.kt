@@ -1,6 +1,8 @@
 package com.example.quizletapp2.presentaition.navigation
 
 import android.content.Intent
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,11 +22,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
+import com.example.quizletapp2.presentaition.Calendar.AddTaskCalendarScreen.AddTaskCalendarScreen
 import com.example.quizletapp2.presentaition.Component.Card.Term
-import com.example.quizletapp2.presentaition.DetailTopicScreen.DetailTopicScreen
-import com.example.quizletapp2.presentaition.DetailTopicScreen.ListenScreen.ListenScreen
-import com.example.quizletapp2.presentaition.DetailTopicScreen.StudyScreen.StudyScreen
-import com.example.quizletapp2.presentaition.DetailTopicScreen.WriteScreen.WriteScreen
+import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.DetailTopicScreen
+import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.ListenScreen.ListenScreen
+import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.StudyScreen.StudyScreen
+import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.WriteScreen.WriteScreen
 import com.example.quizletapp2.presentaition.Home.CalendarScreen
 import com.example.quizletapp2.presentaition.Home.CreatorScreen
 import com.example.quizletapp2.presentaition.Home.HomeScreen
@@ -36,6 +39,7 @@ import com.example.quizletapp2.presentaition.login.LoginScreen
 import com.example.quizletapp2.presentaition.signin.SignInScreen
 import dagger.hilt.android.lifecycle.HiltViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NavigationGraph(navController: NavHostController, pd : PaddingValues, viewModel : MainViewModel){
 val startScreen = remember {
@@ -59,7 +63,7 @@ val startScreen = remember {
                 route = Screen.ModalBottom.Login.route,
                 deepLinks = listOf(
                     navDeepLink {
-                        uriPattern = "http://192.168.16.105:3000/confirm-email?hash={hash}"
+                        uriPattern = "http://192.168.196.246:3000/confirm-email?hash={hash}"
                         action = Intent.ACTION_VIEW
                     }
                 ),
@@ -105,12 +109,15 @@ val startScreen = remember {
         }
         navigation(startDestination = Screen.BottomBar.Calendar.route, route = "calendarscreen"){
             composable(Screen.BottomBar.Calendar.route){
-                CalendarScreen()
+                CalendarScreen(pd, navController)
+            }
+            composable(Screen.SubScreen.AddTaskCalendar.route){
+                AddTaskCalendarScreen(navController)
             }
         }
         navigation(startDestination = Screen.BottomBar.Create.route, route = "createscreen"){
             composable(Screen.BottomBar.Create.route){
-                CreatorScreen()
+                CreatorScreen(pd, navController)
             }
         }
         navigation(startDestination = Screen.BottomBar.LyricTraining.route, route = "lyrictrainingscreen"){

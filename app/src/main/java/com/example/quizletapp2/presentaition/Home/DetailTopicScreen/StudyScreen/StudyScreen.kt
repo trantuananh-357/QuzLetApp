@@ -1,4 +1,4 @@
-package com.example.quizletapp2.presentaition.DetailTopicScreen.StudyScreen
+package com.example.quizletapp2.presentaition.Home.DetailTopicScreen.StudyScreen
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

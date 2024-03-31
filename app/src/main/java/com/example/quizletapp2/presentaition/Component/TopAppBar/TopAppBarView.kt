@@ -2,6 +2,7 @@ package com.example.quizletapp2.presentaition.Component.TopAppBar
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,17 +26,20 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBarView(type : String, navController: NavController){
 
-  @DrawableRes val Icon : Int = if(type == "main") R.drawable.download else R.drawable.arrow_left_solid
+  @DrawableRes val Icon : Int = if(type == "main") 0 else R.drawable.arrow_left_solid
     @DrawableRes val notificationIcon : Int = if(type == "main") R.drawable.bell_solid else R.drawable.ellipsis_vertical_solid
     @DrawableRes val searchIcon : Int = if(type == "main") R.drawable.magnifying_glass_solid else 0
 
@@ -59,13 +63,16 @@ fun TopAppBarView(type : String, navController: NavController){
                 Row(
                     modifier = Modifier.wrapContentSize()
                 ) {
-                    if(Icon == R.drawable.download){
+                    if(type == "main"){
                         Image(
                             painter = painterResource(id = R.drawable.download),
                             contentDescription = "App",
                             modifier = Modifier
                                 .wrapContentSize()
-                                .offset(x = -20.dp),
+                                .offset(x = -20.dp)
+                                .clickable {
+                                           navController.navigate(Screen.BottomBar.Home.route)
+                                },
                             contentScale = ContentScale.Fit
 
 
@@ -90,7 +97,10 @@ fun TopAppBarView(type : String, navController: NavController){
                             .wrapContentSize(),
                         text = if(type == "main") stringResource(id = R.string.slogan) else "",
                         color = Color.Black,
-                        style = TextStyle(fontSize = 10.sp, fontStyle = FontStyle.Italic)
+                        style = TextStyle(
+                            fontSize = 10.sp,
+                            fontFamily = FontFamily(Font(R.font.poppins_extralightitalic)
+                        ))
                     )
                 }
                 Row(

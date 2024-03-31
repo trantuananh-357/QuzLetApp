@@ -1,8 +1,10 @@
 package com.example.quizletapp2.presentaition
 
 import android.icu.number.Scale
+import android.os.Build
 import android.widget.Space
 import androidx.activity.compose.BackHandler
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -71,6 +73,7 @@ import com.exyte.animatednavbar.utils.noRippleClickable
 import kotlinx.coroutines.launch
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(controller : NavHostController){
@@ -160,7 +163,7 @@ fun MainScreen(controller : NavHostController){
 
     }
     else{
-        NavigationGraph(navController = controller, pd = PaddingValues(30.dp),viewModel)
+        NavigationGraph(navController = controller, pd = PaddingValues(35.dp),viewModel)
 
     }
 }

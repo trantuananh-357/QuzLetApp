@@ -34,14 +34,12 @@
 
                 <data
                     android:scheme="http"
-                    android:host="192.168.16.105"
+                    android:host="192.168.196.246"
                     android:port="3000"
+
                    />
             </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value=""
-                />
+
 
 
         </activity>

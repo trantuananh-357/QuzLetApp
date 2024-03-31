@@ -15,6 +15,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,7 +40,13 @@ fun Categories(title : String, listCard : List<CardItem>, navController : NavCon
         .fillMaxWidth()) {
         Text(
             text = title,
-            style = TextStyle(fontSize = 15.sp, letterSpacing = 1.sp, fontWeight = FontWeight.Bold, color = Color.White),
+            style = TextStyle(
+                fontSize = 15.sp,
+                letterSpacing = 1.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black,
+                fontFamily = FontFamily(Font(R.font.poppins_semibold)
+            )),
             modifier = Modifier.padding(bottom = 5.dp)
         )
         LazyRow(userScrollEnabled = true){

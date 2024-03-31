@@ -32,10 +32,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.consumeAllChanges
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.quizletapp2.R
 import com.example.quizletapp2.presentaition.Component.IconFun.IconVoice
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -45,12 +47,13 @@ import kotlinx.coroutines.launch
 fun DragDropList(
     items: List<String>,
     onMove: (Int, Int) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     val scope = rememberCoroutineScope()
     var overScrollJob by remember { mutableStateOf<Job?>(null) }
     val dragDropListState = rememberDragDropListState(onMove = onMove)
     LazyColumn(
-            modifier = Modifier
+            modifier = modifier
                 .pointerInput(Unit) {
                     detectDragGesturesAfterLongPress(
 
@@ -79,7 +82,8 @@ fun DragDropList(
 
 
 
-            state = dragDropListState.lazyListState
+            state = dragDropListState.lazyListState,
+        userScrollEnabled = false
         ) {
             itemsIndexed(items) { index, item ->
                 Column(
@@ -93,7 +97,7 @@ fun DragDropList(
                             }
                         }
                         .background(Color.White, shape = RoundedCornerShape(8.dp))
-                        .fillMaxSize()
+                        .padding(10.dp)
                 ) {
                     Row (
                         modifier = Modifier
@@ -107,7 +111,7 @@ fun DragDropList(
                         Text(
                             text = item,
                             fontSize = 10.sp,
-                            fontFamily = FontFamily.Serif,
+                            fontFamily = FontFamily(Font(R.font.poppins_medium)),
                             color = Color.Gray
                         )
                         IconVoice()

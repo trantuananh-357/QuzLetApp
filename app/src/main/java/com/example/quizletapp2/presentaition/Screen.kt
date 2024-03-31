@@ -58,6 +58,11 @@ sealed class Screen (val title : String, val route : String) {
             sRouter = "detailtopicscreen",
             R.drawable.house_solid
         )
+        object AddTaskCalendar : SubScreen(
+            sTitle = "AddTaskCalendar",
+            sRouter = "addtaskcalendar",
+            R.drawable.house_solid
+        )
     }
 
     sealed class FeatureStudy(val fTitle : String, val fRouter: String, @DrawableRes val icon : Int) : Screen(fTitle, fRouter){

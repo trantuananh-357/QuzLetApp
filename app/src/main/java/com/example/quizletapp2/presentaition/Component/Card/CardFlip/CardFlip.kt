@@ -23,6 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,7 +52,12 @@ fun CardFlip(onFlip : ()-> Unit){
         ) {
             Text(
                 text = "dsfsdf",
-                style = TextStyle(fontSize = 15.sp, color = Color.Black)
+                style = TextStyle(
+                    fontSize = 15.sp,
+                    color = Color.Black,
+                    fontFamily = FontFamily(Font(R.font.poppins_medium))
+
+                )
 
             )
 
