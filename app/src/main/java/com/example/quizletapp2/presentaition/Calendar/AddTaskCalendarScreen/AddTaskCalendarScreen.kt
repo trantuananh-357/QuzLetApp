@@ -15,6 +15,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.with
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -51,6 +52,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -110,9 +112,16 @@ fun AddTaskCalendarScreen(navController: NavController){
             Row (
                 modifier = Modifier.padding(start = 10.dp, end = 10.dp, bottom = 10.dp)
             ){
-                AddTaskView {
-                    navController.navigateUp()
-                }
+                AddTaskView(
+                    onClick = {navController.navigateUp()},
+                    "Add Task",
+                    color = Color.White,
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(18.dp))
+                        .background(colorResource(id = R.color.schedule_primary))
+
+
+                )
             }
 
         }
@@ -129,15 +138,29 @@ fun AddTaskCalendarScreen(navController: NavController){
                 Column(
                     modifier = Modifier.padding(top  = 10.dp)
                 ) {
-                    Text(
-                        modifier = Modifier.fillMaxWidth(),
-                        text = "Lên lịch trình cho ước mơ của bạn",
-                        minLines = 2,
-                        textAlign = TextAlign.End,
-                        style = TextStyle(fontFamily = FontFamily(Font(R.font.poppins_lightitalic)), fontSize = 30.sp)
+                    Row {
+                        Image(painter = painterResource(id = R.drawable.drawkit_vector_illustration_black_friday___online_shopping__2_),
+                            contentDescription = "img",
+                            modifier = Modifier
+                                .width(100.dp)
+                                .height(100.dp),
+                            contentScale = ContentScale.Crop
+
+                        )
 
 
-                    )
+                        Text(
+                            modifier = Modifier.height(100.dp),
+                            text = "Lên lịch trình cho ước mơ của bạn",
+                            minLines = 2,
+                            textAlign = TextAlign.End,
+                            style = TextStyle(fontFamily = FontFamily(Font(R.font.poppins_lightitalic)), fontSize = 30.sp)
+
+
+                        )
+
+                    }
+
                     Spacer(modifier = Modifier.height(20.dp))
                     Text(
                         text = "Title",
@@ -232,7 +255,7 @@ fun AddTaskCalendarScreen(navController: NavController){
                         .heightIn(max = 400.dp)
                         .clip(RoundedCornerShape(18.dp))
                         .background(colorResource(id = R.color.schedule_primary))
-                        .padding(10.dp),
+                        .padding(20.dp),
 
                     ){
                     SelectableCalendar(
@@ -243,7 +266,9 @@ fun AddTaskCalendarScreen(navController: NavController){
                                 fontSize = 30.sp,
                                 fontFamily = FontFamily(Font(R.font.poppins_bold))
                             ),
-                            modifier = Modifier.fillMaxWidth().padding(start = 5.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 5.dp),
                             textAlign = TextAlign.Start
 
 

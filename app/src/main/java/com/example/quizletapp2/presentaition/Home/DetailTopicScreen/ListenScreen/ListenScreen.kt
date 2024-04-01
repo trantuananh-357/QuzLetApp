@@ -8,6 +8,6 @@ import com.example.quizletapp2.presentaition.Component.IconFun.IconVoice
 @Composable
 fun  ListenScreen (){
     Text("listen")
-    IconVoice()
+    IconVoice({}, false)
 
 }

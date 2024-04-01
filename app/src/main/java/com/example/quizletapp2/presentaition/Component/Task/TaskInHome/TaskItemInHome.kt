@@ -2,6 +2,7 @@ package com.example.quizletapp2.presentaition.Component.Task.TaskInHome
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,10 +26,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Screen
 
 @Composable
-fun TaskItemInHome(item : ScheduleData){
+fun TaskItemInHome(item : ScheduleData, navController: NavController){
     var flag = false
 
     var height : Dp = 0.dp
@@ -47,7 +51,10 @@ fun TaskItemInHome(item : ScheduleData){
             .background(color = colorResource(id = R.color.schedule_1))
             .height(height)
             .fillMaxWidth()
-
+            .clickable {
+                navController.navigate(Screen.BottomBar.Calendar.route)
+            }
+        ,
     ){
 
         Column(
@@ -120,7 +127,8 @@ fun TaskItemInHome(item : ScheduleData){
 fun sdfsd(){
     TaskItemInHome(
         ScheduleData(
-            "asdad", null, "asdfasd"
-        )
+            "asdad", null, "asdfasd",
+        ),
+        navController = rememberNavController()
     )
 }

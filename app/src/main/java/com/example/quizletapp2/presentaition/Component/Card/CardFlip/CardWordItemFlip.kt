@@ -7,12 +7,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.quizletapp2.presentaition.Component.Card.Term
 import com.wajahatkarim.flippable.FlipAnimationType
 import com.wajahatkarim.flippable.Flippable
 import com.wajahatkarim.flippable.FlippableController
 
 @Composable
-fun CardWordItemFlip(){
+fun CardWordItemFlip(term: Term) {
     var duration: Int by remember { mutableStateOf(400) }
     var flipOnTouchEnabled: Boolean by remember { mutableStateOf(true) }
     val flipEnabled: Boolean by remember { mutableStateOf(true) }
@@ -26,10 +27,10 @@ fun CardWordItemFlip(){
     Flippable(
         modifier = Modifier.fillMaxWidth(),
         frontSide = {
-            EnglishWordFrontSide(flipController)
+            EnglishWordFrontSide(flipController, term.prompt)
         },
         backSide = {
-            EnglishWordBackSide(flipController)
+            EnglishWordBackSide(flipController, term.answer )
         },
         flipController = flipController,
         flipDurationMs = duration,
@@ -42,23 +43,27 @@ fun CardWordItemFlip(){
 }
 @Composable
 fun EnglishWordFrontSide(
-    flipController: FlippableController
+    flipController: FlippableController,
+    prompt : String
 ) {
     CardFlip(
+    wordAndDefine = prompt,
        onFlip = {
            flipController.flip()
-       }
+       },
    )
 }
 
 @Composable
 fun EnglishWordBackSide(
-    flipController: FlippableController
+    flipController: FlippableController,
+    answer: String
 ) {
     CardFlip(
         onFlip = {
             flipController.flip()
-        }
+        },
+        wordAndDefine = answer
     )
 
 }

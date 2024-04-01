@@ -35,16 +35,17 @@ sealed class Screen (val title : String, val route : String) {
             bRouter = "library",
             R.drawable.book_solid
         )
-        object Calendar : BottomBar(
-            bTitle = "Calendar",
-            bRouter = "calendar",
-            R.drawable.calendar_solid
-        )
         object Create : BottomBar(
             bTitle = "Create",
             bRouter = "create",
             R.drawable.plus_solid
         )
+        object Calendar : BottomBar(
+            bTitle = "Calendar",
+            bRouter = "calendar",
+            R.drawable.calendar_solid
+        )
+
         object LyricTraining : BottomBar(
             bTitle = "Training",
             bRouter = "lyrictraining",
@@ -91,8 +92,8 @@ val listModal = listOf(
 val listBottomBar = listOf(
     Screen.BottomBar.Home,
     Screen.BottomBar.Library,
-    Screen.BottomBar.Calendar,
     Screen.BottomBar.Create,
+    Screen.BottomBar.Calendar,
     Screen.BottomBar.LyricTraining,
 
     )

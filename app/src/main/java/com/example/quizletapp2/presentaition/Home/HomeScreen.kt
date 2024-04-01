@@ -111,7 +111,8 @@ fun HomeScreen(pd : PaddingValues, navController: NavController) {
         item{
             TaskViewInHome(
                 items = items,
-                modifier = Modifier.heightIn(max = 500.dp)
+                modifier = Modifier.heightIn(max = 500.dp),
+                navController = navController
             )
         }
     }

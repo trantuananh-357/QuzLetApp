@@ -23,6 +23,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -33,6 +34,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.quizletapp2.R
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -44,7 +46,12 @@ fun SlideBar(listSlide : List<Int>){
         }
     )
     val scope  = rememberCoroutineScope();
+
+
+
+
     Box(modifier = Modifier.fillMaxWidth()) {
+
             HorizontalPager(
 
                 state = paperState,
@@ -112,6 +119,16 @@ fun SlideBar(listSlide : List<Int>){
 //            }
 //            }
         }
+    LaunchedEffect(key1 = true) {
+        val startTime = System.currentTimeMillis()
+        while (true) {
+            val elapsedTime = System.currentTimeMillis() - startTime
+            if (elapsedTime >= 3000) {
+                paperState.animateScrollToPage((paperState.currentPage + 1)% paperState.pageCount)
+            }
+            delay(2000)
+        }
+    }
 
 }
 

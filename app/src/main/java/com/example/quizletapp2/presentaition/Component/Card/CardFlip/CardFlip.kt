@@ -1,5 +1,6 @@
 package com.example.quizletapp2.presentaition.Component.Card.CardFlip
 
+import android.hardware.biometrics.BiometricPrompt
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +33,7 @@ import com.example.quizletapp2.R
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun CardFlip(onFlip : ()-> Unit){
+fun CardFlip(onFlip : ()-> Unit,  wordAndDefine: String){
     Card(
         modifier = Modifier
             .fillMaxSize()
@@ -51,7 +52,7 @@ fun CardFlip(onFlip : ()-> Unit){
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "dsfsdf",
+                text = wordAndDefine,
                 style = TextStyle(
                     fontSize = 15.sp,
                     color = Color.Black,

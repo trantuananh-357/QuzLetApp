@@ -31,24 +31,26 @@ import com.google.firebase.firestore.EventListener
 
 
 @Composable
-fun IconVoice(){
+fun IconVoice(onClick :() -> Unit, enabled : Boolean){
     val context = LocalContext.current
     val exoPlayer = remember { ExoPlayer.Builder(context).build() }
 
-    val audioUri = Uri.parse("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
+//    val audioUri = Uri.parse("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
 
     Column(modifier = Modifier.wrapContentSize()) {
 
         IconButton(onClick = {
+            onClick()
+//                val mediaItem = MediaItem.Builder()
+//                    .setUri(audioUri)
+//                    .build()
+//                exoPlayer.setMediaItem(mediaItem)
+//                exoPlayer.prepare()
+//                exoPlayer.play()
 
-                val mediaItem = MediaItem.Builder()
-                    .setUri(audioUri)
-                    .build()
-                exoPlayer.setMediaItem(mediaItem)
-                exoPlayer.prepare()
-                exoPlayer.play()
-
-        }) {
+        },
+            enabled = enabled
+        ) {
             Icon(
                 painter = painterResource(id = R.drawable.volume_high_solid),
                 contentDescription = "Play/Pause",
@@ -73,5 +75,5 @@ fun IconVoice(){
 @Preview(showBackground = true)
 @Composable
 fun sdfghsdkf(){
-    IconVoice()
+    IconVoice({}, false)
 }

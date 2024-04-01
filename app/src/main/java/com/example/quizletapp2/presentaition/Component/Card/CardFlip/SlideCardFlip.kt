@@ -23,8 +23,8 @@ import com.example.quizletapp2.presentaition.Component.LoadingBtnDot.Indicator
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun SlideCardFlip(images : List<Term>){
-    val pageCount = images.size
+fun SlideCardFlip(data : List<Term>){
+    val pageCount = data.size
     val pageState = rememberPagerState(pageCount = {pageCount})
     val scope = rememberCoroutineScope()
 
@@ -40,7 +40,7 @@ fun SlideCardFlip(images : List<Term>){
             state = pageState,
 
             ) {index ->
-            CardWordItemFlip()
+            CardWordItemFlip(data[index])
         }
     }
     Row (

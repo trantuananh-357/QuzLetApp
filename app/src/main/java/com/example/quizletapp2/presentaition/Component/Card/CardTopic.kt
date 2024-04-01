@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -47,7 +48,7 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
         shape = RoundedCornerShape(5.dp),
         onClick = { onNavigationToDetailCard()
                   },
-        backgroundColor = Color.Gray
+        backgroundColor = colorResource(id = R.color.schedule_second)
 
     )
     {
@@ -61,7 +62,7 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
                 Text(
                     text = item.subject,
                     style = TextStyle(
-                        color = Color.White,
+                        color = Color.Black,
                         fontSize = 10.sp,
                         fontFamily = FontFamily(Font(R.font.poppins_medium))
                     ),
@@ -70,7 +71,7 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
                 Text(
                     text = item.numword.toString(),
                     style = TextStyle(
-                        color = Color.White,
+                        color = Color.Black,
                         fontSize = 7.sp,
                         fontFamily = FontFamily(Font(R.font.poppins_medium))
                     ),
@@ -99,7 +100,7 @@ fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
                 Text(
                     text = item.author,
                     style = TextStyle(
-                        color = Color.White,
+                        color = Color.Black,
                         fontSize = 8.sp,
                         fontFamily = FontFamily(Font(R.font.poppins_extrabold))
 
@@ -135,7 +136,17 @@ data class CardItem(
    @DrawableRes val imgAuthor: Int,
     val datacard : List<Term>
 
-)
+){
+    fun doesMatchSearchQuery(query: String): Boolean {
+        val matchingCombinations = listOf(
+            "$subject",
+        )
+
+        return matchingCombinations.any {
+            it.contains(query, ignoreCase = true)
+        }
+    }
+}
 
 
 data class Term(

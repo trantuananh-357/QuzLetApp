@@ -219,7 +219,15 @@ fun CalendarDate(navController: NavController) {
                 Row(
                     modifier = Modifier.padding(start = 16.dp, end = 16.dp)
                 ) {
-                    AddTaskView({navController.navigate(Screen.SubScreen.AddTaskCalendar.route)})
+                    AddTaskView(
+                        onClick = {navController.navigate(Screen.SubScreen.AddTaskCalendar.route)},
+                        "Add Task",
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(18.dp))
+                            .background(Color.White),
+                        color = Color.Black
+
+                    )
                 }
             }
         }

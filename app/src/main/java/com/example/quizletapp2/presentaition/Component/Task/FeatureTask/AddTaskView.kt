@@ -30,12 +30,10 @@ import com.example.quizletapp2.R
 
 
 @Composable
-fun AddTaskView(onClick : () -> Unit){
+fun AddTaskView(onClick : () -> Unit, title : String, modifier : Modifier = Modifier, color: Color){
     Box (
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(18.dp))
-            .background(Color.Black)
             .clickable {
                 onClick()
             }
@@ -51,7 +49,7 @@ fun AddTaskView(onClick : () -> Unit){
         ){
             Spacer(modifier = Modifier.width(10.dp))
             Text(
-                text = "Add Task",
+                text = title,
                 style = TextStyle(
                     fontSize = 20.sp,
                     fontFamily = FontFamily(Font(R.font.poppins_semibold),
@@ -59,7 +57,7 @@ fun AddTaskView(onClick : () -> Unit){
                     )
 
                 ),
-                color = Color.White
+                color = color
             )
 
 
@@ -73,5 +71,4 @@ fun AddTaskView(onClick : () -> Unit){
 @Preview(showBackground = true)
 @Composable
 fun asfaf(){
-    AddTaskView({})
 }

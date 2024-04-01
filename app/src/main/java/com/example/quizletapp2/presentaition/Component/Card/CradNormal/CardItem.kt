@@ -1,5 +1,6 @@
 package com.example.quizletapp2.presentaition.Component.Card.CradNormal
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -42,7 +44,13 @@ fun CardNormal(item : Screen.FeatureStudy, navController: NavController){
         modifier = Modifier
             .fillMaxWidth()
             .padding(5.dp)
-            .shadow(ambientColor = Color.Gray,elevation = 2.dp, spotColor = Color.Black, shape = RoundedCornerShape(2.dp))
+            .shadow(
+                ambientColor = Color.Gray,
+                elevation = 2.dp,
+                spotColor = Color.Black,
+                shape = RoundedCornerShape(2.dp)
+            )
+            .background(colorResource(id = R.color.schedule_second))
         ,
         shape = RoundedCornerShape(5.dp),
         onClick = {
@@ -50,14 +58,17 @@ fun CardNormal(item : Screen.FeatureStudy, navController: NavController){
         }
     ){
        Row(
-           modifier = Modifier.padding(5.dp).fillMaxWidth().height(40.dp)
+           modifier = Modifier
+               .padding(5.dp)
+               .fillMaxWidth()
+               .height(40.dp)
        ) {
            IconButton(onClick = { /*TODO*/ }) {
                Icon(
                    painter = painterResource(id = item.icon ),
                    contentDescription = "TagName",
                    modifier = Modifier.size(25.dp),
-                   tint = Color.Blue
+                   tint = colorResource(id = R.color.schedule_primary)
                )
            }
            Spacer(modifier = Modifier.width(5.dp))

@@ -11,9 +11,10 @@ import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun TaskViewInHome(modifier : Modifier = Modifier, items : List<ScheduleData>){
+fun TaskViewInHome(modifier : Modifier = Modifier, items : List<ScheduleData>, navController: NavController){
 
 
 
@@ -30,7 +31,7 @@ fun TaskViewInHome(modifier : Modifier = Modifier, items : List<ScheduleData>){
            userScrollEnabled = false
        ){
            items(items){
-               TaskItemInHome(item = it)
+               TaskItemInHome(item = it, navController = navController)
            }
        }
 

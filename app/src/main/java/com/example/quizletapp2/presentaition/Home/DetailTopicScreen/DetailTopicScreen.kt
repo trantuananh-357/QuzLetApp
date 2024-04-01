@@ -1,6 +1,5 @@
 package com.example.quizletapp2.presentaition.Home.DetailTopicScreen
 
-import android.media.MediaPlayer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,9 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -39,9 +36,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.common.textToSpeechData
 import com.example.quizletapp2.presentaition.Component.Card.CardFlip.SlideCardFlip
 import com.example.quizletapp2.presentaition.Component.Card.CradNormal.CardNormal
 import com.example.quizletapp2.presentaition.Component.Card.Term
@@ -51,12 +50,12 @@ import com.example.quizletapp2.presentaition.Component.TopAppBar.TopAppBarView
 import com.example.quizletapp2.presentaition.listFeature
 
 @Composable
-fun DetailTopicScreen(idCard : String?, navController: NavController){
-    val dataTerm = listOf(
-        Term("1", "House", "Nhà"),
-        Term("2", "House", "Nhà"),
-        Term("3", "House", "Nhà"),
-    )
+fun DetailTopicScreen(
+    idCard : String?,
+    navController: NavController,
+    detailTopicScreenViewModel: DetailTopicScreenViewModel = hiltViewModel()
+){
+
     val context = LocalContext.current
 
     Scaffold (
@@ -195,12 +194,13 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
             }
             item {
                 DragDropList(
-                    items = ReorderItem,
+                    items = dataTerm,
                     onMove = {
-                             fromIndex, toIndex -> ReorderItem.move(fromIndex, toIndex)
+                             fromIndex, toIndex -> dataTerm.move(fromIndex, toIndex)
 
                     },
-                    modifier = Modifier.heightIn(max = 10000.dp)
+                    modifier = Modifier.heightIn(max = 10000.dp),
+                    detailTopicScreenViewModel
                 )
             }
 
@@ -213,26 +213,19 @@ fun DetailTopicScreen(idCard : String?, navController: NavController){
 }
 
 val ReorderItem = listOf(
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
-    "Item 6",
-    "Item 7",
-    "Item 8",
-    "Item 9",
-    "Item 10",
-    "Item 11",
-    "Item 12",
-    "Item 13",
-    "Item 14",
-    "Item 15",
-    "Item 16",
-    "Item 17",
-    "Item 18",
-    "Item 19",
-    "Item 20"
+    textToSpeechData(false,"house" ),
+    textToSpeechData(false,"house" ),
+    textToSpeechData(false,"adad" ),
+    textToSpeechData(false,"house" ),
+    textToSpeechData(false,"house" ),
+    textToSpeechData(false,"house" ),
+
+).toMutableStateList()
+
+val dataTerm = listOf(
+    Term("1", "House", "Nhà"),
+    Term("2", "Home", "Nhà"),
+    Term("3", "Hello every one", "Xin chào mọi người"),
 ).toMutableStateList()
 
 @Preview(showBackground = true)
