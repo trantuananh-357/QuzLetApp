@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.TextField
@@ -26,6 +27,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -39,13 +44,19 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Home.listCard
+import com.example.quizletapp2.presentaition.MainViewModel
 import com.example.quizletapp2.presentaition.Screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBarView(type : String, navController: NavController){
+    val searchBoxView  = remember{
+        mutableStateOf(false)
+    }
 
   @DrawableRes val Icon : Int = if(type == "main") 0 else R.drawable.arrow_left_solid
     @DrawableRes val notificationIcon : Int = if(type == "main") R.drawable.bell_solid else R.drawable.ellipsis_vertical_solid
@@ -79,7 +90,7 @@ fun TopAppBarView(type : String, navController: NavController){
                                 .wrapContentSize()
                                 .offset(x = -20.dp)
                                 .clickable {
-                                           navController.navigate(Screen.BottomBar.Home.route)
+                                    navController.navigate(Screen.BottomBar.Home.route)
                                 },
                             contentScale = ContentScale.Fit
 
@@ -95,7 +106,9 @@ fun TopAppBarView(type : String, navController: NavController){
                             Icon(
                                 painter = painterResource(id = Icon),
                                 contentDescription = "BackPress",
-                                modifier = Modifier.size(25.dp).width(30.dp) )
+                                modifier = Modifier
+                                    .size(25.dp)
+                                    .width(30.dp) )
                         }
                     }
 
@@ -114,8 +127,14 @@ fun TopAppBarView(type : String, navController: NavController){
                 Row(
                     modifier = Modifier.wrapContentSize()
                 ) {
+
                     //Search
-                    IconButton(onClick = {  }, modifier =Modifier.alpha(if(searchIcon == R.drawable.magnifying_glass_solid) 1f else 0f)) {
+                    IconButton(
+                        onClick = {
+                                  navController.navigate(Screen.FeatureStudy.Search.route)
+                                         },
+                        modifier =Modifier
+                            .alpha(if(searchIcon == R.drawable.magnifying_glass_solid) 1f else 0f)) {
                         Icon(
                             painter = painterResource(id = R.drawable.magnifying_glass_solid),
                             contentDescription = "Search",
@@ -126,7 +145,9 @@ fun TopAppBarView(type : String, navController: NavController){
                         Icon(
                             painter = painterResource(id = notificationIcon),
                             contentDescription = "Notification",
-                            modifier = Modifier.size(if(notificationIcon == R.drawable.bell_solid) 20.dp else 25.dp).offset(x = if(notificationIcon == R.drawable.bell_solid) 0.dp else 10.dp )
+                            modifier = Modifier
+                                .size(if (notificationIcon == R.drawable.bell_solid) 20.dp else 25.dp)
+                                .offset(x = if (notificationIcon == R.drawable.bell_solid) 0.dp else 10.dp)
                         )
                     }
 
@@ -137,42 +158,4 @@ fun TopAppBarView(type : String, navController: NavController){
             }
 
         })
-}
-
-@Composable
-fun boxViewSearch(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-    ) {
-        TextField(
-            value = searchText,
-            onValueChange = viewModel::onSearchTextChange,
-            modifier = Modifier.fillMaxWidth(),
-            placeholder = { Text(text = "Search") }
-        )
-        Spacer(modifier = Modifier.height(16.dp))
-        if(isSearching) {
-            Box(modifier = Modifier.fillMaxSize()) {
-                CircularProgressIndicator(
-                    modifier = Modifier.align(Alignment.Center)
-                )
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-            ) {
-                items(persons) { person ->
-                    Text(
-                        text = "${person.firstName} ${person.lastName}",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 16.dp)
-                    )
-                }
-            }
-        }
 }

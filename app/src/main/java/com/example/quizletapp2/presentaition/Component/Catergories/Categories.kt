@@ -49,6 +49,7 @@ fun Categories(title : String, listCard : List<CardItem>, navController : NavCon
             )),
             modifier = Modifier.padding(bottom = 5.dp)
         )
+
         LazyRow(userScrollEnabled = true){
             items(listCard){it ->
                 CardTopic(
@@ -64,9 +65,8 @@ fun Categories(title : String, listCard : List<CardItem>, navController : NavCon
                         navController.navigate(Screen.SubScreen.DetailTopicScreen.route + "/$json")
 
                     }
-
-
                 )
+
             }
         }
 

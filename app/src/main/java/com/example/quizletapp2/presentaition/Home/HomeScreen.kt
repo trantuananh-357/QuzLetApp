@@ -23,39 +23,6 @@ import com.example.quizletapp2.presentaition.Component.Task.TaskInHome.TaskViewI
 
 @Composable
 fun HomeScreen(pd : PaddingValues, navController: NavController) {
-    val listCa = listOf(
-        CardItem(
-            "asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà")
-            )
-        ),
-        CardItem(
-            "asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-            )
-        ),
-        CardItem(
-            "asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-            )
-        ),
-        CardItem(
-            "asdasd", "sfsd", 21342, "asdadas", R.drawable.cat, listOf(
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-                Term("asd", "House", "Nhà"),
-            )
-        ),
-
-        )
     val listSlide = listOf(
         R.drawable.cat,
         R.drawable.chicken,
@@ -85,7 +52,6 @@ fun HomeScreen(pd : PaddingValues, navController: NavController) {
 
     LazyColumn(
         modifier = Modifier
-            .padding()
             .padding(pd)
             .fillMaxSize()
     ) {
@@ -98,12 +64,12 @@ fun HomeScreen(pd : PaddingValues, navController: NavController) {
         }
         item{
             Row(modifier = Modifier.padding(start = 10.dp, end = 10.dp)) {
-                Categories("Phổ Biến", listCa, navController)
+                Categories("Phổ Biến", listCard, navController)
 
 
             }
             Row(modifier = Modifier.padding(start = 10.dp, end = 10.dp)) {
-                Categories("Phổ Biến", listCa, navController)
+                Categories("Phổ Biến", listCard, navController)
 
 
             }
@@ -118,6 +84,40 @@ fun HomeScreen(pd : PaddingValues, navController: NavController) {
     }
 
 }
+val listCard = listOf(
+    CardItem(
+        "1", "Tiếng Anh", 21342, "vitconxuixeo", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà")
+        ), pos = 123, "Nhà Cửa"
+    ),
+    CardItem(
+        "2", "Tiếng Nhật", 212, "chuchoxauxi", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+        ),  pos = 123, "Công Nghệ"
+    ),
+    CardItem(
+        "3", "Tiếng Hàn", 42, "conmeobolao", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+        ),  pos = 123, "Xã Hội"
+    ),
+    CardItem(
+        "4", "Tiếng Trung", 21342, "noname", R.drawable.cat, listOf(
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+            Term("asd", "House", "Nhà"),
+        ),  pos = 123, "Marketing"
+    ),
+
+    )
+
 
 @Preview(showBackground = true)
 @Composable

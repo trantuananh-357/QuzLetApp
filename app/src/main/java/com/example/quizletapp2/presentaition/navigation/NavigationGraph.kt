@@ -24,6 +24,7 @@ import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
 import com.example.quizletapp2.presentaition.Calendar.AddTaskCalendarScreen.AddTaskCalendarScreen
 import com.example.quizletapp2.presentaition.Component.Card.Term
+import com.example.quizletapp2.presentaition.Component.searchScreen.SearchScreen
 import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.DetailTopicScreen
 import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.ListenScreen.ListenScreen
 import com.example.quizletapp2.presentaition.Home.DetailTopicScreen.StudyScreen.StudyScreen
@@ -104,7 +105,7 @@ val startScreen = remember {
         }
         navigation(startDestination = Screen.BottomBar.Library.route, route = "libraryscreen"){
             composable(Screen.BottomBar.Library.route){
-                LibraryScreen()
+                LibraryScreen(pd, navController)
             }
         }
         navigation(startDestination = Screen.BottomBar.Calendar.route, route = "calendarscreen"){
@@ -127,13 +128,16 @@ val startScreen = remember {
         }
 
         composable(Screen.FeatureStudy.Study.route){
-            StudyScreen()
+            StudyScreen(navController = navController)
         }
         composable(Screen.FeatureStudy.Write.route){
             WriteScreen()
         }
         composable(Screen.FeatureStudy.Listen.route){
             ListenScreen()
+        }
+        composable(Screen.FeatureStudy.Search.route){
+            SearchScreen(navController)
         }
 
 

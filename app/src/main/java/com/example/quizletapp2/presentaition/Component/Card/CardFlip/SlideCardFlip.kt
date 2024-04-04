@@ -72,7 +72,6 @@ fun dasd(){
         Term("asd", "House", "Nhà"),
         Term("asd", "House", "Nhà"),
         Term("asd", "House", "Nhà"),
-        Term("asd", "House", "Nhà")
     )
     SlideCardFlip(dataTerm)
 }

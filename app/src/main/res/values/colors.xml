@@ -11,6 +11,8 @@
     <color name="schedule_2">#F0F9FF</color>
     <color name="schedule_primary">#EE786B</color>
     <color name="schedule_second">#F0F9FF</color>
+    <color name="answer_right">#4BEE96</color>
+    <color name="question_title">#62b4ff</color>
 
 
 </resources>

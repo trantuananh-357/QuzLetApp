@@ -56,6 +56,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHost
@@ -77,7 +78,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(controller : NavHostController){
-    val viewModel : MainViewModel = viewModel()
+    val viewModel : MainViewModel = hiltViewModel()
     val currentScaffoldScreen = remember {
         viewModel.currentStateForScaffold.value
     }
@@ -163,7 +164,7 @@ fun MainScreen(controller : NavHostController){
 
     }
     else{
-        NavigationGraph(navController = controller, pd = PaddingValues(35.dp),viewModel)
+        NavigationGraph(navController = controller, pd = PaddingValues(top = 35.dp),viewModel)
 
     }
 }

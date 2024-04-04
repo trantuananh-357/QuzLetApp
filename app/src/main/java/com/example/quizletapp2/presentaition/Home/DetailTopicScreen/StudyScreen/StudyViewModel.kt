@@ -15,41 +15,7 @@ import javax.inject.Inject
 class StudyViewModel @Inject constructor(
 
 ) : ViewModel(){
-    private val _textState  = mutableStateOf(textToSpeechData())
-    val textState : State<textToSpeechData> = _textState
-    private var textToSpeech : TextToSpeech? = null
 
-    fun onTextStateChange(newText : String){
-        _textState.value = textState.value.copy(
-            text = newText
-        )
-
-    }
-
-    fun textToSpeech (context : Context){
-        _textState.value = textState.value.copy(
-            isButtonEnabled = false
-        )
-        textToSpeech = TextToSpeech(context){
-
-            if(it == TextToSpeech.SUCCESS){
-                textToSpeech?.let {txtToSpeech ->
-                    txtToSpeech.language = Locale.US
-                    txtToSpeech.speak(
-                        _textState.value.text,
-                        TextToSpeech.QUEUE_ADD,
-                        null,
-                        null
-
-                    )
-                }
-            }
-            _textState.value = textState.value.copy(
-                isButtonEnabled = true
-            )
-        }
-
-    }
 
 
 

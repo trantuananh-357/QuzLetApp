@@ -34,12 +34,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quizletapp2.R
+import com.example.quizletapp2.presentaition.Component.Card.Term
 import com.example.quizletapp2.presentaition.Screen
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CardNormal(item : Screen.FeatureStudy, navController: NavController){
+fun CardNormal(item : Screen.FeatureStudy, navController: NavController, id : String?){
     Card (
         modifier = Modifier
             .fillMaxWidth()
@@ -55,6 +56,8 @@ fun CardNormal(item : Screen.FeatureStudy, navController: NavController){
         shape = RoundedCornerShape(5.dp),
         onClick = {
             navController.navigate(item.fRouter)
+
+            // setup truyền vào ID cho mỗi chức năng
         }
     ){
        Row(

@@ -5,10 +5,23 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.quizletapp2.presentaition.Home.listCard
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
-class MainViewModel  : ViewModel(){
+
+@HiltViewModel
+class MainViewModel @Inject constructor()  : ViewModel(){
     private val _currentStateForScaffold : MutableState<Screen> = mutableStateOf(Screen.BottomBar.Home)
     val currentStateForScaffold : MutableState<Screen> get() = _currentStateForScaffold
 
@@ -17,16 +30,6 @@ class MainViewModel  : ViewModel(){
 
     private val _stateScreen = mutableStateOf(false)
     val stateScreen : State<Boolean> = _stateScreen
-
-
-    //////////Search
-    private val _searchCard = MutableStateFlow("")
-    val searchCard = _searchCard.asStateFlow()
-
-    private val _isSearching = MutableStateFlow(false)
-    val isSearching = _isSearching.asStateFlow()
-
-
 
 
     fun setStateLogin(){

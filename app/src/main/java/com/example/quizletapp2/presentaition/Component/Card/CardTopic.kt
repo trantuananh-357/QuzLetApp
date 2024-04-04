@@ -38,82 +38,105 @@ import com.example.quizletapp2.R
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CardTopic(item : CardItem, onNavigationToDetailCard : () -> Unit){
-    Card(
-        modifier = Modifier
-            .padding(end = 20.dp)
-            .width(160.dp)
-            .height(100.dp)
-
-        ,
-        shape = RoundedCornerShape(5.dp),
-        onClick = { onNavigationToDetailCard()
-                  },
-        backgroundColor = colorResource(id = R.color.schedule_second)
-
-    )
-    {
-        Column (
+    Column {
+        Card(
             modifier = Modifier
-                .padding(start = 5.dp, end = 5.dp, top = 7.dp, bottom = 5.dp)
-                .fillMaxHeight(),
-            verticalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column {
-                Text(
-                    text = item.subject,
-                    style = TextStyle(
-                        color = Color.Black,
-                        fontSize = 10.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins_medium))
-                    ),
-                    modifier = Modifier.fillMaxWidth()
-                )
-                Text(
-                    text = item.numword.toString(),
-                    style = TextStyle(
-                        color = Color.Black,
-                        fontSize = 7.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins_medium))
-                    ),
-                    modifier = Modifier
-                        .padding(top = 3.dp)
-                        .fillMaxWidth()
-                )
-            }
+                .padding(end = 20.dp)
+                .width(160.dp)
+                .height(100.dp)
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
+            ,
+            shape = RoundedCornerShape(5.dp),
+            onClick = { onNavigationToDetailCard()
+            },
+            backgroundColor = colorResource(id = R.color.schedule_second)
+
+        )
+        {
+            Column (
+                modifier = Modifier
+                    .padding(start = 5.dp, end = 5.dp, top = 7.dp, bottom = 5.dp)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.SpaceBetween
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.dog) ,
-                    contentDescription = "author",
-                    modifier = Modifier
-                        .clip(
-                            shape = RoundedCornerShape(100)
-                        )
-                        .width(10.dp)
-                        .height(10.dp),
-                    contentScale = ContentScale.Crop
+                Column {
+                    Text(
+                        text = item.subject,
+                        style = TextStyle(
+                            color = Color.Black,
+                            fontSize = 10.sp,
+                            fontFamily = FontFamily(Font(R.font.poppins_medium))
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Text(
+                        text = item.numword.toString(),
+                        style = TextStyle(
+                            color = Color.Black,
+                            fontSize = 7.sp,
+                            fontFamily = FontFamily(Font(R.font.poppins_medium))
+                        ),
+                        modifier = Modifier
+                            .padding(top = 3.dp)
+                            .fillMaxWidth()
+                    )
+                }
 
-                )
-                Text(
-                    text = item.author,
-                    style = TextStyle(
-                        color = Color.Black,
-                        fontSize = 8.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins_extrabold))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.dog) ,
+                        contentDescription = "author",
+                        modifier = Modifier
+                            .clip(
+                                shape = RoundedCornerShape(100)
+                            )
+                            .width(10.dp)
+                            .height(10.dp),
+                        contentScale = ContentScale.Crop
 
-                    ),
-                    modifier = Modifier.padding(start = 3.dp)
-                )
+                    )
+                    Text(
+                        text = item.author,
+                        style = TextStyle(
+                            color = Color.Black,
+                            fontSize = 8.sp,
+                            fontFamily = FontFamily(Font(R.font.poppins_extrabold))
+
+                        ),
+                        modifier = Modifier.padding(start = 3.dp)
+                    )
+                }
+
+
+
+
             }
-
-
 
         }
-
+        Text(
+            text = item.topic,
+            style = TextStyle(
+                color = Color.Black,
+                fontSize = 7.sp,
+                fontFamily = FontFamily(Font(R.font.poppins_medium)),
+                ),
+            modifier = Modifier.padding(top = 3.dp)
+            )
+        Text(
+            text = item.pos.toString() + " Lượt học",
+            style = TextStyle(
+                color = Color.Black,
+                fontSize = 7.sp,
+                fontFamily = FontFamily(Font(R.font.poppins_medium))
+            ),
+            modifier = Modifier.padding(top = 3.dp)
+            )
     }
+  
+
 }
 
 data class CardItem(
@@ -134,7 +157,12 @@ data class CardItem(
     val numword : Int,
     val author : String,
    @DrawableRes val imgAuthor: Int,
-    val datacard : List<Term>
+    val datacard : List<Term>,
+    val pos : Int,
+    val topic : String
+
+
+
 
 ){
     fun doesMatchSearchQuery(query: String): Boolean {
@@ -153,6 +181,7 @@ data class Term(
     val id : String,
     val prompt : String,
     val answer : String,
+
 //    val pos : Number,
 //    val cardId : String,
 //    @DrawableRes val image : Int

@@ -82,6 +82,11 @@ sealed class Screen (val title : String, val route : String) {
             fRouter = "listen",
             R.drawable.headphones_solid
         )
+        object Search : FeatureStudy(
+            fTitle = "Search",
+            fRouter = "search",
+            R.drawable.headphones_solid
+        )
     }
 }
 val listModal = listOf(

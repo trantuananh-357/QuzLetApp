@@ -190,7 +190,7 @@ fun DetailTopicScreen(
                 }
             }
             items(listFeature){item ->
-                CardNormal(item,navController)
+                CardNormal(item,navController, idCard)
             }
             item {
                 DragDropList(
