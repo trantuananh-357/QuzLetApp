@@ -131,10 +131,10 @@ val startScreen = remember {
             StudyScreen(navController = navController)
         }
         composable(Screen.FeatureStudy.Write.route){
-            WriteScreen()
+            WriteScreen(navController)
         }
         composable(Screen.FeatureStudy.Listen.route){
-            ListenScreen()
+            ListenScreen(navController = navController)
         }
         composable(Screen.FeatureStudy.Search.route){
             SearchScreen(navController)

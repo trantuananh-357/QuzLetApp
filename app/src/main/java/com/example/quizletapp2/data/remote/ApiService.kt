@@ -21,6 +21,9 @@ interface ApiService {
     @GET("user/{username}")
     suspend fun getAUser()
 
+    @GET("")
+    suspend fun getDataUser()
+
 
 
 

@@ -35,8 +35,8 @@ fun CalendarScreen(pd : PaddingValues, navController: NavController){
         modifier = Modifier
             .fillMaxSize()
             .padding(pd)
-            .padding(start  =10.dp, end = 10.dp)
-    ){
+                .padding(start  =10.dp, end = 10.dp)
+        ){
         item {
             CalendarDate(navController)
         }
@@ -56,8 +56,9 @@ fun CalendarScreen(pd : PaddingValues, navController: NavController){
         }
     }
 }
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun fsdf(){
-//    CalendarScreen(PaddingValues(10.dp), navController = rememberNavController())
+    CalendarScreen(PaddingValues(10.dp), navController = rememberNavController())
 }
