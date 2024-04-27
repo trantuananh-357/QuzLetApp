@@ -6,16 +6,16 @@
 
 ##  :camera: Gallery
 <img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484" width="150" height="280">
-![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484)
-![2](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/4da9f241-b733-4f89-81be-15e9a683da01)
-![3](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8be73957-00fa-46d6-86ed-47498814ae75)
-![4](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/bc56e7d1-1ccd-4f25-83d7-c7801150dfa9)
-![5](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8e0c68f0-afb5-40a5-975f-c473b803bc5c)
-![6](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/e0b6c5d0-568e-43ba-999e-9e1ec5e1791f)
-![7](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/c676b24e-deb8-41bb-b92f-14976f5a30c3)
-![8](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/6de91482-1ce5-4ae7-a65f-b6929498849e)
-![9](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/c58a65ba-992e-4776-93fa-66d057c21596)
-![10](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/6e782dcc-2101-45ac-bcc9-04ab761d616c)
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/4da9f241-b733-4f89-81be-15e9a683da01484" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8be73957-00fa-46d6-86ed-47498814ae75" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/bc56e7d1-1ccd-4f25-83d7-c7801150dfa9" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8e0c68f0-afb5-40a5-975f-c473b803bc5c84" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/e0b6c5d0-568e-43ba-999e-9e1ec5e1791f" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/c676b24e-deb8-41bb-b92f-14976f5a30c3" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/6de91482-1ce5-4ae7-a65f-b6929498849e" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/c58a65ba-992e-4776-93fa-66d057c215964" width="150" height="280">
+<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/6e782dcc-2101-45ac-bcc9-04ab761d616c4" width="150" height="280">
+
 
 ## :ledger: Index
 
