@@ -1,10 +1,11 @@
-![5](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/9dea66db-0ac4-4289-84e9-f86cd1bd940a)![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/22dac4c1-a68c-43a1-80ba-26932c6b35b2)# Introduction
+# Introduction
 - The app is been created fot purpose support learn lanuages and save word, create topic
 - Use more interesting learning support functions, games, and vivid sound effects
 - Becasue have problem with be, so I will update soon
 - Have some img to description app below, Thanks to reading!
 
 ##  :camera: Gallery
+![image](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484)
 ![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484)
 ![2](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/4da9f241-b733-4f89-81be-15e9a683da01)
 ![3](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8be73957-00fa-46d6-86ed-47498814ae75)
