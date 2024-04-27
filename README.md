@@ -5,7 +5,7 @@
 - Have some img to description app below, Thanks to reading!
 
 ##  :camera: Gallery
-<img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f48" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png" width="150" height="280">
 ![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484)
 ![2](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/4da9f241-b733-4f89-81be-15e9a683da01)
 ![3](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8be73957-00fa-46d6-86ed-47498814ae75)
