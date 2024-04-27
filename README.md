@@ -1,14 +1,20 @@
-# Introduction
+![5](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/9dea66db-0ac4-4289-84e9-f86cd1bd940a)![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/22dac4c1-a68c-43a1-80ba-26932c6b35b2)# Introduction
 - The app is been created fot purpose support learn lanuages and save word, create topic
 - Use more interesting learning support functions, games, and vivid sound effects
 - Becasue have problem with be, so I will update soon
 - Have some img to description app below, Thanks to reading!
 
 ##  :camera: Gallery
-![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/0980b5e8-9242-4925-901e-a91031175825)
-![2](https://gith![3](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/46aa3390-e933-4a29-9233-be6554f5ef40)
-ub.com/trantuananh-357/QuzLetApp/assets/96402433/9add6dd6-6ed8-495e-9189-1cd3e252cf0e)
-![10](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/39819fe7-1736-4b2e-a465-371e109adae7)
+![Screenshot 2024-04-27 163537](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484)
+![2](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/4da9f241-b733-4f89-81be-15e9a683da01)
+![3](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8be73957-00fa-46d6-86ed-47498814ae75)
+![4](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/bc56e7d1-1ccd-4f25-83d7-c7801150dfa9)
+![5](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/8e0c68f0-afb5-40a5-975f-c473b803bc5c)
+![6](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/e0b6c5d0-568e-43ba-999e-9e1ec5e1791f)
+![7](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/c676b24e-deb8-41bb-b92f-14976f5a30c3)
+![8](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/6de91482-1ce5-4ae7-a65f-b6929498849e)
+![9](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/c58a65ba-992e-4776-93fa-66d057c21596)
+![10](https://github.com/trantuananh-357/QuzLetApp/assets/96402433/6e782dcc-2101-45ac-bcc9-04ab761d616c)
 
 ## :ledger: Index
 
