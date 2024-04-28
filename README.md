@@ -2,7 +2,7 @@
 - The app is been created fot purpose support learn lanuages and save word, create topic
 - Use more interesting learning support functions, games, and vivid sound effects
 - Becasue have problem with be, so I will update soon
-- Have some img to description app below, Thanks to reading!
+- Have some img to description app below, Thank for reading!
 
 ##  :camera: Gallery
 <img src="https://github.com/trantuananh-357/QuzLetApp/assets/96402433/d30e0d49-8f0e-4c24-9e28-52d0a8f2f484" width="150" height="280">
