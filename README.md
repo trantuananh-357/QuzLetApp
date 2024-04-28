@@ -1,7 +1,7 @@
 # Introduction
 - The app is been created fot purpose support learn lanuages and save word, create topic
 - Use more interesting learning support functions, games, and vivid sound effects
-- Becasue have problem with be, so I will update soon
+- Becasue have problem with back end, so I will update soon
 - Have some img to description app below, Thank for reading!
 
 ##  :camera: Gallery
